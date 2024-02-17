@@ -79,7 +79,8 @@ TODO: delete this one you don't need it
 4. `firebase use YOUR_PROJECT_ID`
 5. `(cd functions && npm install)`
 6. `npm run dev`
-7.  http://localhost:8080 
+7. `npm run dev`
+8.  http://127.0.0.1:8080 or http://192.168.1.161:8080 
 
 * project is viewable within `https://console.firebase.google.com/`
 * settings are here: `https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/settings/general` 
