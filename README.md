@@ -75,8 +75,25 @@ TODO: delete this one you don't need it
 
 1. `npm install -g firebase-tools`
 2. `firebase login`
+3. `cd reviewly-start`
+4. `firebase use YOUR_PROJECT_ID`
+5. `(cd functions && npm install)`
+6. `npm run dev`
+7.  http://localhost:8080 
 
 * project is viewable within `https://console.firebase.google.com/`
 * settings are here: `https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/settings/general` 
 * firestore: `https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/firestore` 
 * storage: `https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/storage`
+* language palm api: `https://extensions.dev/extensions/googlecloud/firestore-palm-gen-text`
+
+
+# Gotchas
+
+Error:
+
+`Error: Invalid project selection, please verify project YOUR_PROJECT_ID exists and you have access.`
+
+Solution:
+
+`firebase logout && firebase login`
