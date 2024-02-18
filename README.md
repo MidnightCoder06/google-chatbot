@@ -88,6 +88,16 @@ TODO: delete this one you don't need it
 * storage: `https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/storage`
 * language palm api: `https://extensions.dev/extensions/googlecloud/firestore-palm-gen-text`
 
+# Deployment
+
+* Security rules are written in `firestore.rules` and `storage.rules` files.
+
+To deploy these Security Rules, run this command in your terminal in `reviewly-start`:
+`firebase deploy --only firestore:rules,storage`
+
+* Cloud functions
+* * `firebase deploy --only functions`
+* * you can see all of your functions here: https://console.firebase.google.com/u/3/project/ai-extensions-codelab-dcf62/functions
 
 # Gotchas
 
@@ -98,3 +108,17 @@ Error:
 Solution:
 
 `firebase logout && firebase login`
+
+
+
+The extension is monitoring the db for changes
+
+
+Mobile chatbot uses google authentication for now
+https://console.firebase.google.com/u/3/project/mobile-chatbot-142e6/authentication
+Need to switch to regular email / password authentication
+
+
+to start chatbot app:
+firebase emulators:start --only hosting
+ http://localhost:5000/

@@ -1,25 +1,12 @@
-/**
- * Copyright 2023 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// Get your configuration here: https://console.firebase.google.com/project/_/settings/general/web:
-
 export default {
-	projectId: "demo-codelab-chatbot",
-	appId: "demo-codelab-chatbot",
-	apiKey: "demo-codelab-chatbot",
-	storageBucket: "demo-codelab-chatbot.appspot.com",
-	authDomain: "demo-codelab-chatbot.firebaseapp.com",
+	projectId: "mobile-chatbot-142e6",
+	appId: "1:809431955357:web:5d2ed3e4ebc69a87006174",
+	apiKey: "AIzaSyDlPV_mjTLPA0-zFiN3crMpDNSNEI7MVjI",
+	storageBucket: "mobile-chatbot-142e6.appspot.com",
+	authDomain: "mobile-chatbot-142e6.firebaseapp.com",
 };
+
+/*
+  messagingSenderId: "809431955357",
+  measurementId: "G-7Y38RWMEMG"
+*/

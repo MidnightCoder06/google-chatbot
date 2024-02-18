@@ -4,9 +4,10 @@
   "version": "0.1.0",
   "description": "A sample web app that summarizes reviews using the PaLM API and a Firebase AI extension.",
   "scripts": {
-    "dev": "http-server"
+    "dev": "http-server --cors"
   },
   "dependencies": {
+    "firebase": "^10.8.0",
     "http-server": "^14.1.1"
   }
 }
