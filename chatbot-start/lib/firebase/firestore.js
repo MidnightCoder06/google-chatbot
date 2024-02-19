@@ -1,19 +1,3 @@
-/**
- * Copyright 2023 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import {
 	collection,
 	onSnapshot,
@@ -77,14 +61,42 @@ function subscribeToDiscussions(userId, callback) {
 }
 
 // Replace the getMessagesQuery() function below ⬇️
-function getMessagesQuery(db, userId, discussionId) {
-	return {};
-}
+// function getMessagesQuery(db, userId, discussionId) {
+// 	return {};
+// }
 // Replace the getMessagesQuery() function above ⬆️
-
+function getMessagesQuery(db, userId, discussionId) {
+	if (!userId || !discussionId) {
+			return null;
+	}
+	const messagesRef = collection(
+			db,
+			"users",
+			userId,
+			"discussion",
+			discussionId,
+			"messages"
+	);
+	return query(messagesRef, orderBy("createTime", "asc"));
+}
 // Replace the handleMessageDoc() function below ⬇️
+// function handleMessageDoc(doc) {
+// 	return {};
+// }
 function handleMessageDoc(doc) {
-	return {};
+	const data = doc.data();
+	const item = {
+			prompt: data.prompt,
+			response: data.response,
+			id: doc.id,
+			createTime: formatDate(data.createTime.toDate()),
+	};
+
+	if (data?.status?.completeTime) {
+			item.completeTime = formatDate(data.status.completeTime.toDate());
+	}
+
+	return item;
 }
 // Replace the handleMessageDoc() function above ⬆️
 
@@ -137,6 +149,25 @@ async function addNewMessage({ db, userId, discussionId, message }) {
 	}
 
 	// Insert your code below ⬇️
+	await addDoc(
+        collection(
+                db,
+                "users",
+                userId,
+                "discussion",
+                discussionId,
+                "messages"
+        ),
+        {
+                prompt: message,
+                createTime: serverTimestamp(),
+        }
+	);
+
+	await updateDoc(doc(db, "users", userId, "discussion", discussionId), {
+			latestMessage: message,
+			updatedTime: serverTimestamp(),
+	});
 	// Insert your code above ⬆️
 	return discussionId;
 }
